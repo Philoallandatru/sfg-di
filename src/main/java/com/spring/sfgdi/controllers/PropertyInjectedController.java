@@ -1,9 +1,17 @@
 package com.spring.sfgdi.controllers;
 
 import com.spring.sfgdi.services.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.liquibase.LiquibaseDataSource;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
+@Controller
 public class PropertyInjectedController {
     // using property to get service
+    @Autowired
+    @Qualifier("propertyGreetingService")
     public GreetingService greetingService;
 
     public String getGreeting() {
